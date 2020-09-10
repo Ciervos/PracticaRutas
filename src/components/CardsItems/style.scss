@@ -1,0 +1,15 @@
+.carta{
+  align-items: left;
+  border: 2px solid goldenrod;
+  display: flex;
+  flex-flow: column;
+  height: 90%;  
+  margin: 5px; 
+  padding: 7px;
+  width: 300px;
+
+  &:hover{
+    background-color: goldenrod;
+  }
+
+}
