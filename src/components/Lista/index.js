@@ -4,7 +4,7 @@ import "./style.scss";
 
 function Lista(props) {
 
-  const [moldes,setMoldes] = useState([]);
+  const [products,setProducts] = useState([]);
   
   useEffect(() => {
    
@@ -13,10 +13,12 @@ function Lista(props) {
      },[]);
 
      async function fetchData(){
-      const data = await fetch("https://api.mercadolibre.com/sites/MLA/search?q=moldes&limit=5");
+      const data = await fetch(`https://api.mercadolibre.com/sites/${props.sitio}/search?q=milka&limit=5`);
+      //const data = await fetch("https://api.mercadolibre.com/sites/MLA/search?q=moldes&limit=5");
       const dataJson = await data.json();
    
-      setMoldes(dataJson.results);
+      setProducts(dataJson.results);
+      console.log(props)
       
     }
 
@@ -24,7 +26,7 @@ function Lista(props) {
   return (
      
        <ul className="listacont">
-     {moldes.filter((obj) =>{
+     {products.filter((obj) =>{
        return(obj.title.includes(props.info))
      }).map((obj, key) => {
        return (

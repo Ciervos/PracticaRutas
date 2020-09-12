@@ -1,12 +1,16 @@
 import React,{useState} from 'react'
 import Navbar from '../../components/Navbar'
 import Lista from '../../components/Lista'
-import {Link} from  "react-router-dom";
+import {Link, useParams} from  "react-router-dom";
 
 
-function Team() {
+
+function Team(props) {
+
   const [txt,setTxt] = useState("");
+  const {site} = useParams();
 
+  console.log(props)
   function handleFilter(info){
    setTxt(info);
   };
@@ -15,7 +19,7 @@ function Team() {
    <>
    <Link to="/">Home</Link>
    <Navbar handleCb={handleFilter}/>
-   <Lista info={txt}/>
+   <Lista sitio={site} info={txt}/>
   
 
    </>

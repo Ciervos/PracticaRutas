@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './pages/Home/index';
 import Team from './pages/Team/index';
+import Product from './pages/Product/index';
 import {
   BrowserRouter as Router,
   Route,
@@ -12,7 +13,8 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <Router>
     <Route exact path="/" component={Home}/>
-    <Route exact path="/equipo" component={Team}/>
+    <Route exact path="/carousel/:site" component={Team}/>
+    <Route exact path="/producto/:site/:id" component={Product}/>
   </Router>,
   document.getElementById('root')
 );
